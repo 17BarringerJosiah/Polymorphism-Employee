@@ -1,0 +1,3 @@
+[salaried employee: Jim Barringer
+social security number: 44
+weekly salary: $6,000.00]

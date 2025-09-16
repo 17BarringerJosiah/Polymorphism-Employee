@@ -1,0 +1,606 @@
+
+
+       /*
+       //use Student Class to make and sort an Arrayl
+               ArrayList<Student> arr = new ArrayList<Student>();
+
+        arr.add(new Student("Bill", 4.00, 15));
+        arr.add(new Student("Jane", 2.75, 18));
+        arr.add(new Student("Holly", 3.88, 17));
+
+        Collections.sort(arr);
+        System.out.println(arr);
+
+
+               //Sum the elements of an array without a loop
+        int[] arr = {10, 5, 7, 12, 4};
+        int sum = IntStream.of(arr).sum();
+        System.out.println(sum);
+
+        //recursion version
+        int sumThis = sumArray(arr, 0);
+        System.out.println(sumThis);
+
+
+    }
+
+    public static int sumArray(int[] arr, int index){
+        if (index >= arr.length){
+            return 0;
+        }
+        return arr[index] + sumArray(arr, index + 1);
+    }
+
+
+
+        //Sum the elements of an array without a loop
+        int[] arr = {10, 5, 7, 12, 4};
+        int sum = IntStream.of(arr).sum();
+        System.out.println(sum);
+
+        //recursion version
+        int sumThis = sumArray(arr, 0);
+        System.out.println(sumThis);
+
+
+    }
+
+    public static int sumArray(int[] arr, int index){
+        if (index >= arr.length){
+            return 0;
+        }
+        return arr[index] + sumArray(arr, index + 1);
+
+
+
+
+
+
+               //sort an array of numbers in order
+        int[] arr = {10, 5, 7, 12, 4};
+
+        for (int i =0; i < arr.length - 1; i++){
+            for (int j = 0; j < arr.length - 1 - i; j++){
+                if (arr[j] > arr[j+1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+
+
+
+
+
+
+
+
+
+               //Print numbers from 1 to n without a loop
+        printNum(10);
+
+
+    }
+
+    public static void printNum(int a) {
+        if (a == 0) {
+            return;
+        }
+        printNum(a-1);
+        System.out.println(a);
+
+
+
+
+
+
+               //create arraylist    <Integer> cars = new ArrayList<Integer>();
+    cars.add(1);
+    cars.add(203);
+    cars.add(55);
+
+    System.out.println(cars);
+    Collections.sort(cars); //sort cars in numerically (can be alphabetically too if using Strings)
+
+    for(int i : cars){ //gotta update with i though!
+        System.out.println(i);
+    }
+
+
+
+
+
+
+
+               //create arraylist    <String> cars = new ArrayList<String>();
+    //add items to arraylist
+    cars.add("Ford");
+    cars.add("Toyota");
+    //insert into the arraylist
+    cars.add(2, "Mazda");
+    //print out cars
+    System.out.println(cars);
+    //print out only index 1 from arraylist cars
+    System.out.println(cars.get(1));
+    //replace index 2 from Mazda to now be Honda
+    cars.set(2, "Honda");
+    //remove the first index of the arraylist
+    cars.removeFirst();
+    //get rid of all items in arraylist
+    cars.clear();
+
+
+    //print out all of the arraylist cars using the for each loop
+        for (String car : cars) {
+            System.out.println(car);
+        }
+
+
+
+
+
+
+
+
+
+        //recursive method for adding numbers within a number
+        int x = 123;
+        System.out.println(digits(x));
+
+
+    }
+
+    public static int digits(int a) {
+        if(a == 0){
+            //stop when we get to 0 and return 0
+            return 0;
+        } else{
+            // take 3, add then take 2, add then grab 1 = 6
+            return a % 10 + digits(a / 10);
+        }
+
+
+
+
+
+
+
+               int x = 127;
+        System.out.println(digits(x));
+
+
+    }
+
+    public static int digits(int a) {
+        int total = 0;
+        while (a > 0) {
+            total = total + a % 10;
+            a = a / 10;
+        }
+        return total;
+        //iterative recursive function
+        int x = 4;
+        System.out.println(fact(x));
+
+
+    }
+
+    public static int fact(int a) {
+        if (a == 1) {
+            return 1;
+        }
+        return a * fact(a-1);
+    }
+}
+
+---------OR----------
+
+            //iterative factorial function
+        int x = 4;
+        System.out.println(fact(x));
+
+
+    }
+    public static int fact(int a){
+        int f = 1;
+        for(int i = 1; i <= a; i++){
+            f = f * i;
+        }
+        return f;
+    }
+}
+          //create a sorted array from two arrays
+        int[] array1 = {10, 4, 6};
+        int[] array2 = {5, 6, 2};
+        int combinedLength = array1.length + array2.length;
+        int[] combinedArray = new int[combinedLength];
+        System.arraycopy(array1, 0, combinedArray, 0, array1.length);
+        System.arraycopy(array2, 0, combinedArray, array1.length, array2.length);
+        Arrays.sort(combinedArray);
+        System.out.println(Arrays.toString(combinedArray));
+
+            //how Amr does it
+                int[] array3 = {10, 4, 6};
+                int[] array4 = {5, 6, 2};
+
+                Arrays.sort(array3);
+                Arrays.sort(array4);
+
+                int[] array5;
+        //sets up the new array's length to match the combined length of array 3 and 4
+                int combinedLength2 = array3.length + array4.length;
+        //initializes the new array and takes in the combined length of the first two arrays
+                array5 = new int[combinedLength2];
+                int i = 0; // points to array3
+                int j = 0; // points to array4
+                int k = 0; // points to array5
+
+
+        //loop continues as long as there are item to compare in both arrays
+                while((i < array3.length) && (j < array4.length)){
+        //compare the current element of array3 to array4
+                    if (array3[i] < array4[j]){
+        //If array3 is smaller, it is copied into array5 at position k and then increments to the next position in both array3 and array5
+                        array5[k++] = array3[i++];
+        //same thing but for array4
+                    } else{
+                        array5[k++] = array4[j++];
+                    }
+                }
+        //checks for remaining values in array3 which will be the biggest values and copies them into array5
+                while (i < array3.length)
+                    array5[k++] = array3[i++];
+
+        //checks for remaining values in array4 which will be the biggest values and copies them into array5
+                while(j < array4.length)
+                    array5[k++] = array4[j++];
+
+                System.out.println(Arrays.toString(array5));
+            }
+        }
+
+
+
+
+
+
+               //find the row containing the minimum value of an array
+        int[][] array2 = {{1, 2, 3}, {4, 5, 6}, {7,8,9}};
+        int minimum = array2[0][0];
+        int row = 0;
+
+        for (int i = 0; i < array2.length; i++)
+            for (int j = 0; j < array2[i].length; j++) {
+                if (minimum > array2[i][j]) {
+                    minimum = array2[i][j];
+                    row = i;
+                }
+                System.out.println(row);
+
+
+            }
+
+
+
+
+        //find the minimum value of an array
+        int[][] array2 = {{1, 2, 3}, {4, 5, 6}};
+        int minimum = array2[0][0];
+
+        for (int i = 0; i < array2.length; i++)
+            for(int j = 0; j < array2[i].length; j++) {
+                if(minimum > array2[i][j])
+                    minimum = array2[i][j];
+        }
+        System.out.println(minimum);
+
+        int[][] array = new int[2][3];
+        int[][] array2 = {{1, 2, 3}, {4, 5, 6}};
+
+       //for loop to print out multidementional array
+       for (int i = 0; i < array2.length; i++) {
+            for (int j = 0; j < array[i].length; j++)
+                System.out.println(array2[i][j]);
+                }
+
+                //equivalent for each loop
+           for(int[] row : array2)
+            for(int col : row)
+                System.out.println(col);
+*/
+
+
+
+
+
+  /*
+    int [][] array = new int [2][3];
+    int [][] array2 = {{1, 2 , 3},{4, 5, 6}};
+
+        //System.out.println(Arrays.toString(array2[0]));
+
+        for (int i = 0; i < array2.length; i++){
+            for(int j = 0; j < array[i].length; j++)
+                System.out.println(array2[i][j]);
+
+
+
+
+  create a class called student. This class will have the following attributes:name, gpa, age
+    create all the needed methods/constructors for that class
+Create a demo class that has an array of 5 students. Fill these five objects with any data you like
+Then your code will ask the user for a gph and then display all students that has a gpa greater than that gpa
+
+        Student[] students = new Student[5];
+        students[0] = new Student("Dave", 4.00, 19);
+        students[1] = new Student("Bill", 3.00, 16);
+        students[2] = new Student("Morgan", 3.50, 15);
+        students[3] = new Student("Jillian", 4.15, 18);
+        students[4] = new Student("Chuck", 2.00, 14);
+
+        System.out.println(students[2]);
+
+        double entry = 4.00;
+
+        for (Student student : students){
+            if (student.getGpa() >= entry){
+                System.out.println(student);
+            }
+        }
+*/
+
+
+
+
+/*
+        //binary search algorithm
+        int[] searchArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+        int number = 17;
+        int l = 0;
+        int r = searchArray.length - 1;
+
+
+
+        while (r >= l) {
+            int mid = l + (r - 1) / 2;
+            if (searchArray[mid] == number) {
+                System.out.println("Found it");
+                return;
+            }
+            if (searchArray[mid] > number) {
+                r = mid - 1;
+            } else {
+                l = mid + 1;
+            }
+        }
+
+*/
+/*
+
+        int[] arr = new int[5];
+
+        arr = fillArray();
+        function1(arr);
+    }
+
+
+    //for each loop (for each index(j) in array(array) do this -->
+    public static int[] fillArray(){
+        return new int[]{1,2,3,4};
+    }
+
+    public static void function1(int[] array){
+         array[0] = 10;
+    }
+
+
+
+
+        //Array first day notes
+        int[] newArray = new int[50];
+
+        for(int i = 0; i < newArray.length ; i++){
+            newArray[i] = (i * 2) + 1;
+            System.out.println(newArray[i]);
+        }
+
+        int[] anotherArray = {1, 2, 3, 4};
+
+        for (int i = 0; true; i++){
+            anotherArray[i] = i;
+            System.out.println(anotherArray[i] + " Hello");
+        }
+
+
+
+        int[] heckAnotherArray = new int[5];
+
+        for (int i = 1; i <= heckAnotherArray.length; i++){
+
+            System.out.println("Enter item number: " + i + ": ");
+            heckAnotherArray[i] = scanner.nextInt();
+        }
+
+        String choice = "yes";
+        int number = 0;
+        do{
+            for (int j : heckAnotherArray) {
+                if (j == number) {
+                    System.out.println("Found it!");
+                    break;
+                }
+            }
+            System.out.println("Do you wnat to continue?(yes or no): ");
+            choice = scanner.nextLine();
+        } while (choice.equals("yes"));
+
+
+
+
+                int[] arr = {3, 7, 10, 12, 14, 1, 2, 6, 15, 17};
+
+                mergeSort(arr,0,arr.length-1);
+
+
+
+
+
+            }
+
+            public static void mergeSort(int[] arr, int left, int right){
+                if(left >= right)
+                    return ;
+
+                int mid = left + (right - left)/ 2;
+
+                mergeSort(arr,left,mid);
+                mergeSort(arr,mid+1,right);
+                mergeList(arr,left,right,mid);
+
+
+            }
+
+            public static void mergeList(int[] arr, int left, int right, int mid){
+
+                int n1 = mid - left + 1 ;
+                int n2 = right - mid ;
+
+                int[] a1 = new int[n1];
+                int[] a2 = new int[n2];
+
+                System.arraycopy(arr, left, a1, 0, n1);
+
+                for(int i= 0 ; i < n2;i++)
+                    a2[i] = arr[mid+1+i];
+
+                int i = 0 ;  // points to a1
+                int j = 0 ;  // points to a2
+                int k = left;   // points to the merged array
+
+                while((i < n1) && (j< n2)){
+                    if (a1[i] < a2[j])
+                        arr[k++] = a1[i++];
+                    else
+                        arr[k++] = a2[j++];
+                }
+
+                while(i<= n1)
+                    arr[k++] = a1[i++];
+
+                while(j<=n2)
+                    arr[k++] = a2[j++];
+
+
+//Matrix setup
+                            int[][] arr1 = {{1, 2, 3}, {4, 5, 6}};
+                            int[][] arr2 = {{7, 8, 9}, {0, 1, 2}};
+
+                            System.out.println("Calculated Matrix:");
+                            int[][] result = calcMatrix(arr1, arr2);
+                            printMatrix(result);
+                        }
+
+                        public static int[][] calcMatrix(int[][] arr1, int[][] arr2) {
+                            int rows = arr1.length;
+                            int cols = arr1[0].length;
+                            int[][] matrix = new int[rows][cols];
+
+                            for (int i = 0; i < rows; i++) {
+                                for (int j = 0; j < cols; j++) {
+                                    matrix[i][j] = arr1[i][j] * arr2[i][j];
+                                }
+                            }
+                            return matrix;
+                        }
+
+                        public static void printMatrix(int[][] matrix) {
+                            for (int[] row : matrix) {
+                                for (int val : row) {
+                                    System.out.print(val + " ");
+                                }
+                                System.out.println();
+                            }
+                        }
+                    }
+
+        //tower of Hanoi w/ recursion
+        int numberOfDisks = 3; // Example: Solve for 3 disks
+        System.out.println("Solving Towers of Hanoi for " + numberOfDisks + " disks:");
+        solveHanoi(numberOfDisks, 'A', 'C', 'B'); // A: Source, C: Destination, B: Auxiliary
+
+
+    }
+
+    public static void solveHanoi(int n, char source, char destination, char auxiliary) {
+        if (n == 0) {
+            return;
+        }
+
+        // Move n-1 disks from source to auxiliary, using destination as helper
+        solveHanoi(n - 1, source, auxiliary, destination);
+
+        // Move the nth disk from source to destination
+        System.out.println("Move disk " + n + " from " + source + " to " + destination);
+
+        // Move n-1 disks from auxiliary to destination, using source as helper
+        solveHanoi(n - 1, auxiliary, destination, source);
+
+
+//Permutations w/ recursion using a Permutations class
+//main class
+        Permutations permGen = new Permutations();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a String that you'd like to permutate: ");
+        String input = scanner.nextLine();
+        List<String> permutations = permGen.findAllPermutations(input);
+        System.out.println("All permutations of: " + input);
+
+        for (int i = 0; i < permutations.toArray().length; i++) {
+            String p = permutations.get(i);
+            System.out.println(p);
+        }
+
+//permutations class
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Permutations {
+
+    public List<String> findAllPermutations(String letters) {
+        List<String> result = new ArrayList<>();
+        if (letters == null || letters.isEmpty()) {
+            return result;
+        }
+        char[] charArray = letters.toCharArray();
+        permute(charArray, 0, result);
+        return result;
+    }
+
+    private void permute(char[] charArray, int index, List<String> result) {
+        if (index == charArray.length - 1) {
+            result.add(new String(charArray));
+            return;
+        }
+        for (int i = index; i < charArray.length; i++) {
+            swap(charArray, index, i);
+            permute(charArray, index + 1, result);
+            swap(charArray, index, i);
+        }
+    }
+
+    private void swap(char[] charArray, int i, int j) {
+        char temp = charArray[i];
+        charArray[i] = charArray[j];
+        charArray[j] = temp;
+    }
+}
+
+
+
+*/
+
+
